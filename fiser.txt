@@ -1,1 +1,449 @@
-hello
+mint@mint:~$ git config
+usage: git config [<options>]
+
+Config file location
+    --global              use global config file
+    --system              use system config file
+    --local               use repository config file
+    --worktree            use per-worktree config file
+    -f, --file <file>     use given config file
+    --blob <blob-id>      read config from given blob object
+
+Action
+    --get                 get value: name [value-regex]
+    --get-all             get all values: key [value-regex]
+    --get-regexp          get values for regexp: name-regex [value-regex]
+    --get-urlmatch        get value specific for the URL: section[.var] URL
+    --replace-all         replace all matching variables: name value [value_regex]
+    --add                 add a new variable: name value
+    --unset               remove a variable: name [value-regex]
+    --unset-all           remove all matches: name [value-regex]
+    --rename-section      rename section: old-name new-name
+    --remove-section      remove a section: name
+    -l, --list            list all
+    -e, --edit            open an editor
+    --get-color           find the color configured: slot [default]
+    --get-colorbool       find the color setting: slot [stdout-is-tty]
+
+Type
+    -t, --type <>         value is given this type
+    --bool                value is "true" or "false"
+    --int                 value is decimal number
+    --bool-or-int         value is --bool or --int
+    --path                value is a path (file or directory name)
+    --expiry-date         value is an expiry date
+
+Other
+    -z, --null            terminate values with NUL byte
+    --name-only           show variable names only
+    --includes            respect include directives on lookup
+    --show-origin         show origin of config (file, standard input, blob, command line)
+    --default <value>     with --get, use default value when missing entry
+
+mint@mint:~$ 
+mint@mint:~$ 
+mint@mint:~$ git config --global user.email "ionelandras786@gmail.com"
+mint@mint:~$ 
+mint@mint:~$ 
+mint@mint:~$ git add fiser.txt
+fatal: pathspec 'fiser.txt' did not match any files
+mint@mint:~$ 
+mint@mint:~$ 
+mint@mint:~$ git config --global core.editor kate
+mint@mint:~$  git config --global init.defaultBranch main
+mint@mint:~$ git config --global init.defaultBranch main
+mint@mint:~$ git config --list
+user.email=ionelandras786@gmail.com
+core.editor=kate
+init.defaultbranch=main
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+mint@mint:~$ 
+mint@mint:~$ 
+mint@mint:~$ 
+mint@mint:~$ pwd
+/home/mint
+mint@mint:~$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.ICEauthority
+	.Xauthority
+	.bash_history
+	.bash_logout
+	.bashrc
+	.byobu/
+	.cache/
+	.config/
+	.gitconfig
+	.gtkrc-2.0
+	.gtkrc-xfce
+	.local/
+	.mozilla/
+	.profile
+	.sudo_as_admin_successful
+	.xsession-errors
+	Desktop/
+	Unsaved Document 1
+	a.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+mint@mint:~$ mkdir mytest
+mint@mint:~$ cd mytest
+mint@mint:~/mytest$ git clone https://github.com/ionel04/LigaAC.git
+Cloning into 'LigaAC'...
+warning: You appear to have cloned an empty repository.
+mint@mint:~/mytest$ ls
+LigaAC
+mint@mint:~/mytest$ cd LigaAC/
+mint@mint:~/mytest/LigaAC$ cd home
+bash: cd: home: No such file or directory
+mint@mint:~/mytest/LigaAC$ cd desktop
+bash: cd: desktop: No such file or directory
+mint@mint:~/mytest/LigaAC$ ls 
+mint@mint:~/mytest/LigaAC$ cd ..
+mint@mint:~/mytest$ cd ..
+mint@mint:~$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.ICEauthority
+	.Xauthority
+	.bash_history
+	.bash_logout
+	.bashrc
+	.byobu/
+	.cache/
+	.config/
+	.gitconfig
+	.gtkrc-2.0
+	.gtkrc-xfce
+	.local/
+	.mozilla/
+	.profile
+	.sudo_as_admin_successful
+	.xsession-errors
+	Desktop/
+	Unsaved Document 1
+	a.html
+	mytest/
+
+nothing added to commit but untracked files present (use "git add" to track)
+mint@mint:~$ rm -rf .git
+mint@mint:~$ git status
+fatal: not a git repository (or any of the parent directories): .git
+mint@mint:~$ mkdir test
+mint@mint:~$ cd test
+mint@mint:~/test$ git init
+Initialized empty Git repository in /home/mint/test/.git/
+mint@mint:~/test$ ls -l-a
+ls: invalid option -- '-'
+Try 'ls --help' for more information.
+mint@mint:~/test$ ls -l -a
+total 0
+drwxrwxr-x  3 mint mint  60 Nov 15 19:16 .
+drwxr-xr-x 18 mint mint 620 Nov 15 19:16 ..
+drwxrwxr-x  7 mint mint 200 Nov 15 19:16 .git
+mint@mint:~/test$ ls -la
+total 0
+drwxrwxr-x  3 mint mint  60 Nov 15 19:16 .
+drwxr-xr-x 18 mint mint 620 Nov 15 19:16 ..
+drwxrwxr-x  7 mint mint 200 Nov 15 19:16 .git
+mint@mint:~/test$ echo "hello" >fiser.txt
+mint@mint:~/test$ ls -la
+total 4
+drwxrwxr-x  3 mint mint  80 Nov 15 19:17 .
+drwxr-xr-x 18 mint mint 620 Nov 15 19:16 ..
+drwxrwxr-x  7 mint mint 200 Nov 15 19:16 .git
+-rw-rw-r--  1 mint mint   6 Nov 15 19:17 fiser.txt
+mint@mint:~/test$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	fiser.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+mint@mint:~/test$ git add .
+mint@mint:~/test$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   fiser.txt
+
+mint@mint:~/test$ git commit -m "HELLO"
+[master (root-commit) c1513c5] HELLO
+ 1 file changed, 1 insertion(+)
+ create mode 100644 fiser.txt
+mint@mint:~/test$ git status
+On branch master
+nothing to commit, working tree clean
+mint@mint:~/test$ git log
+commit c1513c52816aa908e9fa6ab7c4cdcb0d67913e80 (HEAD -> master)
+Author: Live session user <ionelandras786@gmail.com>
+Date:   Tue Nov 15 19:19:05 2022 +0000
+
+    HELLO
+mint@mint:~/test$ echo "# LigaAC" >> README.md
+mint@mint:~/test$ git init
+Reinitialized existing Git repository in /home/mint/test/.git/
+mint@mint:~/test$ git add README.md
+mint@mint:~/test$ git commit -m "first commit"
+[master fce9b17] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+mint@mint:~/test$ git branch -M main
+mint@mint:~/test$ git remote add origin https://github.com/ionel04/LigaAC.git
+mint@mint:~/test$ git push -u origin main
+Username for 'https://github.com': ionel04
+Password for 'https://ionel04@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/ionel04/LigaAC.git/'
+mint@mint:~/test$ nano new.py &
+[1] 11349
+mint@mint:~/test$ git status
+On branch main
+nothing to commit, working tree clean
+
+[1]+  Stopped                 nano new.py
+mint@mint:~/test$ cd ..
+mint@mint:~$ nano new.py
+mint@mint:~$ python3 new.py
+LIGA AC 
+mint@mint:~$ cd test
+mint@mint:~/test$ git status
+On branch main
+nothing to commit, working tree clean
+mint@mint:~/test$ kate 1.py &
+[2] 11483
+mint@mint:~/test$ qt5ct: using qt5ct plugin
+qt5ct: D-Bus global menu: no
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/16/"
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/16@2x/"
+Invalid Context= "Mimetypes" line for icon theme:  "/usr/share/icons/Mint-Y/mimetypes/16/"
+Invalid Context= "Mimetypes" line for icon theme:  "/usr/share/icons/Mint-Y/mimetypes/16@2x/"
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/22/"
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/22@2x/"
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/24/"
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/24@2x/"
+Invalid Context= "Mimetypes" line for icon theme:  "/usr/share/icons/Mint-Y/mimetypes/24/"
+Invalid Context= "Mimetypes" line for icon theme:  "/usr/share/icons/Mint-Y/mimetypes/24@2x/"
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/32/"
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/32@2x/"
+Invalid Context= "Mimetypes" line for icon theme:  "/usr/share/icons/Mint-Y/mimetypes/32/"
+Invalid Context= "Mimetypes" line for icon theme:  "/usr/share/icons/Mint-Y/mimetypes/32@2x/"
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/48/"
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/48@2x/"
+Invalid Context= "Mimetypes" line for icon theme:  "/usr/share/icons/Mint-Y/mimetypes/48/"
+Invalid Context= "Mimetypes" line for icon theme:  "/usr/share/icons/Mint-Y/mimetypes/48@2x/"
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/64/"
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/64@2x/"
+Invalid Context= "Mimetypes" line for icon theme:  "/usr/share/icons/Mint-Y/mimetypes/64/"
+Invalid Context= "Mimetypes" line for icon theme:  "/usr/share/icons/Mint-Y/mimetypes/64@2x/"
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/96/"
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/96@2x/"
+Invalid Context= "Mimetypes" line for icon theme:  "/usr/share/icons/Mint-Y/mimetypes/128/"
+Invalid Context= "Mimetypes" line for icon theme:  "/usr/share/icons/Mint-Y/mimetypes/128@2x/"
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/256/"
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/256@2x/"
+Invalid Context= "Apps" line for icon theme:  "/usr/share/icons/Mint-Y/apps/symbolic/"
+Invalid Context= "Mimetypes" line for icon theme:  "/usr/share/icons/Mint-Y/mimetypes/symbolic/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/8x8/legacy/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/16x16/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/16x16/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/22x22/legacy/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/24x24/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/24x24/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/32x32/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/32x32/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/48x48/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/48x48/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/64x64/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/64x64/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/96x96/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/96x96/ui/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/256x256/legacy/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/512x512/legacy/"
+Invalid Context= "Legacy" line for icon theme:  "/usr/share/icons/Adwaita/scalable/legacy/"
+Invalid Context= "UI" line for icon theme:  "/usr/share/icons/Adwaita/scalable/ui/"
+Hspell: can't open /usr/share/hspell/hebrew.wgz.sizes.
+sonnet.plugins.hspell: HSpellDict::HSpellDict: Init failed
+sonnet.core: No language dictionaries for the language: "C"
+sonnet.core: No language dictionaries for the language: "C"
+sonnet.core: No language dictionaries for the language: "C"
+sonnet.core: No language dictionaries for the language: "C"
+sonnet.core: No language dictionaries for the language: "C"
+sonnet.core: No language dictionaries for the language: "C"
+qt5ct: palette support is disabled
+kf5.kdbusaddons: Can not find 'kdeinit5' executable at  "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin" "/usr/bin, /usr/lib/qt5/bin"
+kf5.kservice.services: KServiceTypeTrader: serviceType "ThumbCreator" not found
+sonnet.core: No language dictionaries for the language: "C"
+
+mint@mint:~/test$ 
+mint@mint:~/test$ git status
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	1.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+mint@mint:~/test$ git .add
+git: '.add' is not a git command. See 'git --help'.
+
+The most similar command is
+	add
+mint@mint:~/test$ git add.
+git: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+	add
+mint@mint:~/test$ git add .
+mint@mint:~/test$ git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   1.py
+
+mint@mint:~/test$ git push
+fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+mint@mint:~/test$  git push --set-upstream origin main
+Username for 'https://github.com': ionel04
+Password for 'https://ionel04@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/ionel04/LigaAC.git/'
+mint@mint:~/test$ ^C
+mint@mint:~/test$  git push --set-upstream origin main
+Username for 'https://github.com': ionel04
+Password for 'https://ionel04@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/ionel04/LigaAC.git/'
+mint@mint:~/test$ git config
+usage: git config [<options>]
+
+Config file location
+    --global              use global config file
+    --system              use system config file
+    --local               use repository config file
+    --worktree            use per-worktree config file
+    -f, --file <file>     use given config file
+    --blob <blob-id>      read config from given blob object
+
+Action
+    --get                 get value: name [value-regex]
+    --get-all             get all values: key [value-regex]
+    --get-regexp          get values for regexp: name-regex [value-regex]
+    --get-urlmatch        get value specific for the URL: section[.var] URL
+    --replace-all         replace all matching variables: name value [value_regex]
+    --add                 add a new variable: name value
+    --unset               remove a variable: name [value-regex]
+    --unset-all           remove all matches: name [value-regex]
+    --rename-section      rename section: old-name new-name
+    --remove-section      remove a section: name
+    -l, --list            list all
+    -e, --edit            open an editor
+    --get-color           find the color configured: slot [default]
+    --get-colorbool       find the color setting: slot [stdout-is-tty]
+
+Type
+    -t, --type <>         value is given this type
+    --bool                value is "true" or "false"
+    --int                 value is decimal number
+    --bool-or-int         value is --bool or --int
+    --path                value is a path (file or directory name)
+    --expiry-date         value is an expiry date
+
+Other
+    -z, --null            terminate values with NUL byte
+    --name-only           show variable names only
+    --includes            respect include directives on lookup
+    --show-origin         show origin of config (file, standard input, blob, command line)
+    --default <value>     with --get, use default value when missing entry
+
+mint@mint:~/test$ git config -l
+user.email=ionelandras786@gmail.com
+core.editor=kate
+init.defaultbranch=main
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/ionel04/LigaAC.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+mint@mint:~/test$ git config username "ionel04"
+error: key does not contain a section: username
+mint@mint:~/test$ git config --global user.name "ionel04"
+mint@mint:~/test$ kf5.kservice.services: KServiceTypeTrader: serviceType "ThumbCreator" not found
+
+mint@mint:~/test$ git config -l
+user.email=ionelandras786@gmail.com
+user.name=ionel04
+core.editor=kate
+init.defaultbranch=main
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/ionel04/LigaAC.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+mint@mint:~/test$ git push
+fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+mint@mint:~/test$ ^C
+mint@mint:~/test$  git push --set-upstream origin main
+Username for 'https://github.com': ionel04
+Password for 'https://ionel04@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/ionel04/LigaAC.git/'
+mint@mint:~/test$ 
+mint@mint:~/test$ 
+mint@mint:~/test$ git remote set-url origin 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
+mint@mint:~/test$ 
+mint@mint:~/test$ 
+mint@mint:~/test$ ^C
+mint@mint:~/test$ git push --set-upstream origin main
+fatal: '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' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+mint@mint:~/test$ git remote set-url origin https:..
+mint@mint:~/test$ git remote set-url origin https://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@github.com/ionel04/LigaAC.git
+mint@mint:~/test$ 
+mint@mint:~/test$ 
+mint@mint:~/test$ git push -u origin main
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (6/6), 486 bytes | 486.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0)
+To https://github.com/ionel04/LigaAC.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+mint@mint:~/test$ ^C
+mint@mint:~/test$ 
+
